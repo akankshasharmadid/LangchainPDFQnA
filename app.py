@@ -64,7 +64,7 @@ def generate_output(prompt):
 def main():
     load_dotenv()
     st.set_page_config(layout="wide")
-    st.header('Langchain Question and Answers: Multiple PDFs')
+    st.header('Unlocking Answers Across Multiple PDFs: The Langchain Q&A ')
     #st.text_input('Ask any question related to the PDF uploaded')
     prompt = st.chat_input("Ask any question related to the PDF uploaded")
     if prompt:
