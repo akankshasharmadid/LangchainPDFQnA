@@ -35,6 +35,8 @@ Run the Python script:
  ```bash
    streamlit run app.py
 
+   
+
 The Streamlit web application will open in your browser, allowing you to interact with the PDF question and answer system.
 
 Upload PDF files using the provided file uploader.
