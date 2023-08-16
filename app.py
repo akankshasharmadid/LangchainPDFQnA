@@ -9,10 +9,11 @@ from langchain.chains import ConversationChain
 from langchain import HuggingFaceHub
 from langchain.chains import ConversationalRetrievalChain
 from dotenv import load_dotenv
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.chat_models import ChatOpenAI
 
 def get_pdf_text(pdf_docs):
     text = ''
-    
     for pdf in pdf_docs:
         pdf_reader = PdfReader(pdf)
         for page in pdf_reader.pages:
@@ -30,18 +31,24 @@ def get_chunks_text(text):
 
 
 def get_vectorspace(chunks):
-    
+    #Hugging Face
     embeddings = HuggingFaceInstructEmbeddings(model_name = 'hkunlp/instructor-xl')
+
+    ### ChatGPT OPENAPI
+    #embeddings = OpenAIEmbeddings()
     vector_store = FAISS.from_texts(texts=chunks,embedding=embeddings)
     return vector_store
 
 
 def get_conversation_buffer(vector_space):
-
+    ## Hugging Face
     llm = HuggingFaceHub(
         repo_id = "google/flan-t5-xxl",
         model_kwargs={"temperature":0.5, "max_length": 512}
     )
+
+    ### ChatGPT LLM
+    ###llm = ChatOpenAI()
     memory = ConversationBufferMemory(memory_key = "chat_history", return_messages = True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
         llm = llm,
