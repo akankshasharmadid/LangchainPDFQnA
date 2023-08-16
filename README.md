@@ -24,7 +24,7 @@ This Python script utilizes various natural language processing and machine lear
 1. Make sure you have the required packages installed:
 
    ```bash
-   pip install streamlit PyPDF2 langchain python-dotenv
+   pip install streamlit PyPDF2 langchain python-dotenv openai
 
 
 Clone or download the repository to your local machine.
@@ -37,7 +37,6 @@ Open a terminal or command prompt and navigate to the directory containing the d
    ```bash
    streamlit run app.py
    
-
 
 The Streamlit web application will open in your browser, allowing you to interact with the PDF question and answer system.
 
