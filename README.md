@@ -31,11 +31,13 @@ Clone or download the repository to your local machine.
 
 Open a terminal or command prompt and navigate to the directory containing the downloaded files.
 
-Run the Python script:
- ```bash
-   streamlit run app.py
+2. Run the Python script:
 
+
+   ```bash
+   streamlit run app.py
    
+
 
 The Streamlit web application will open in your browser, allowing you to interact with the PDF question and answer system.
 
