@@ -8,6 +8,7 @@ from langchain.chains.conversation.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
 from langchain import HuggingFaceHub
 from langchain.chains import ConversationalRetrievalChain
+from dotenv import load_dotenv
 
 def get_pdf_text(pdf_docs):
     text = ''
@@ -36,12 +37,13 @@ def get_vectorspace(chunks):
 
 
 def get_conversation_buffer(vector_space):
+
     llm = HuggingFaceHub(
         repo_id = "google/flan-t5-xxl",
         model_kwargs={"temperature":0.5, "max_length": 512}
     )
     memory = ConversationBufferMemory(memory_key = "chat_history", return_messages = True)
-    conversation_chain = ConversationalRetrievalChain(
+    conversation_chain = ConversationalRetrievalChain.from_llm(
         llm = llm,
         retriever = vector_space.as_retriever(),
         memory = memory
@@ -49,18 +51,28 @@ def get_conversation_buffer(vector_space):
     return conversation_chain
 
 def generate_output(prompt):
-    st.write(f"User: {prompt}")
+    response = st.session_state.conversation({'question': prompt})
+    st.session_state.chat_history = response['chat_history']
+    for i,res in enumerate(st.session_state.chat_history):
+        if i%2 == 0:
+            st.write(f"User: {res.content}")
+        else:
+            st.write(f"AI: {res.content}")
+        #st.write(f"Assistant:{res['AIMessage']}")
 
 
 def main():
-    st.title('Langchain Question and Answers: Multiple PDFs')
+    load_dotenv()
+    st.set_page_config(layout="wide")
+    st.header('Langchain Question and Answers: Multiple PDFs')
     #st.text_input('Ask any question related to the PDF uploaded')
     prompt = st.chat_input("Ask any question related to the PDF uploaded")
     if prompt:
         generate_output(prompt)
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
-    
+    if "chat_history" not in st.session_state:
+        st.session_state.chat_history = None
     with st.sidebar:
         text = ''
         st.header('Upload the pdf files')
