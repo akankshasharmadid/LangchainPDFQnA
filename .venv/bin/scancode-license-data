@@ -1,8 +1,0 @@
-#!/Users/akanksha/Documents/Documents/SummerProject/LangchainPDFQnA/.venv/bin/python
-# -*- coding: utf-8 -*-
-import re
-import sys
-from licensedcode.license_db import dump_scancode_license_data
-if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(dump_scancode_license_data())

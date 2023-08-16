@@ -1,9 +1,0 @@
----
-license_expression: postgresql
-is_license_reference: yes
-relevance: 95
-ignorable_urls:
-    - https://spdx.org/licenses/postgresql
----
-
-https://spdx.org/licenses/postgresql

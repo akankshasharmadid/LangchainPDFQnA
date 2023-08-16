@@ -1,8 +1,0 @@
----
-license_expression: csprng OR lgpl-2.1-plus
-is_license_notice: yes
-relevance: 100
-minimum_coverage: 100
----
-
-For usage conditions, see lib_rand.c

@@ -1,8 +1,0 @@
----
-is_false_positive: yes
-notes: imagemagick
----
-
-products[4] =
-
- "GPL Ghostscript",
