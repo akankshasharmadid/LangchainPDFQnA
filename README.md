@@ -8,6 +8,7 @@ This Python script utilizes various natural language processing and machine lear
 - [Usage](#usage)
 - [Features](#Features)
 - [Configuration](#configuration)
+- [Output](#output)
 - [Credits](#credits)
 - [Authors](#authors)
 
@@ -59,6 +60,11 @@ The system will generate responses based on the uploaded PDF content and the inp
 The script uses the Langchain library, including components for text splitting, embeddings, and conversational chains. Ensure that you have the required dependencies installed.
 
 The load_dotenv() function is used to load environment variables from a .env file. Make sure to create a .env file in the same directory as your script if necessary.
+
+## Output
+Here is an example screenshot of the Langchain PDF Question and Answer System in action:
+
+![Output](output.png)
 
 ## Credits
 
