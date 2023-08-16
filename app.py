@@ -8,7 +8,7 @@ from langchain.chains.conversation.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
 from langchain import HuggingFaceHub
 from langchain.chains import ConversationalRetrievalChain
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
 
@@ -69,7 +69,7 @@ def generate_output(prompt):
 
 
 def main():
-    load_dotenv()
+    #load_dotenv()
     st.set_page_config(layout="wide")
     st.header('Unlocking Answers Across Multiple PDFs: The Langchain Q&A ')
     #st.text_input('Ask any question related to the PDF uploaded')
